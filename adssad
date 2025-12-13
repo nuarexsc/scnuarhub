@@ -1,0 +1,1847 @@
+-- ts file was generated at discord.gg/25ms
+
+
+local v1 = game.Players.localPlayer:IsInGroup(14163561) and true or false
+if game.CoreGui:FindFirstChild("KronHub") then
+    game.CoreGui.KronHub:Destroy()
+end
+game:GetService("Players")
+local vu2 = game:GetService("TweenService")
+game:GetService("RunService")
+local vu3 = game:GetService("UserInputService")
+local vu4 = game:GetService("UserInputService")
+local vu5 = workspace.CurrentCamera.ViewportSize
+local vu6 = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
+local vu7 = {
+    flags = {}
+}
+local vu8 = game.Players.LocalPlayer:GetMouse()
+local vu203 = {
+    DraggingEnabled = function(_, p9, p10)
+        local vu11 = p10 or p9
+        local vu12 = false
+        local vu13 = nil
+        local vu14 = nil
+        local vu15 = nil
+        p9.InputBegan:Connect(function(pu16)
+            if pu16.UserInputType == Enum.UserInputType.MouseButton1 then
+                vu12 = true
+                vu14 = pu16.Position
+                vu15 = vu11.Position
+                pu16.Changed:Connect(function()
+                    if pu16.UserInputState == Enum.UserInputState.End then
+                        vu12 = false
+                    end
+                end)
+            end
+        end)
+        p9.InputChanged:Connect(function(p17)
+            if p17.UserInputType == Enum.UserInputType.MouseMovement then
+                vu13 = p17
+            end
+        end)
+        vu4.InputChanged:Connect(function(p18)
+            if p18 == vu13 and vu12 then
+                local v19 = p18.Position - vu14
+                vu11.Position = UDim2.new(vu15.X.Scale, vu15.X.Offset + v19.X, vu15.Y.Scale, vu15.Y.Offset + v19.Y)
+            end
+        end)
+    end,
+    validate = function(_, p20, p21)
+        local v22, v23, v24 = pairs(p20)
+        while true do
+            local v25
+            v24, v25 = v22(v23, v24)
+            if v24 == nil then
+                break
+            end
+            if p21[v24] == nil then
+                p21[v24] = v25
+            end
+        end
+        return p21
+    end,
+    tween = function(_, p26, p27, p28)
+        local v29 = vu2:Create(p26, vu6, p27)
+        v29.Completed:Connect(p28 or function()
+        end)
+        v29:Play()
+    end,
+    Create = function(_, p30)
+        local vu31 = {
+            CurrentTab = nil
+        }
+        local v32 = Instance.new("ScreenGui")
+        local v33 = Instance.new("Frame")
+        local v34 = Instance.new("UICorner")
+        local v35 = Instance.new("Frame")
+        local v36 = Instance.new("ImageLabel")
+        local v37 = Instance.new("ImageLabel")
+        local v38 = Instance.new("ImageLabel")
+        local v39 = Instance.new("Frame")
+        local v40 = Instance.new("UICorner")
+        local v41 = Instance.new("Frame")
+        local vu42 = Instance.new("ScrollingFrame")
+        local vu43 = Instance.new("UIListLayout")
+        local v44 = Instance.new("ImageLabel")
+        local v45 = Instance.new("Frame")
+        local v46 = Instance.new("Frame")
+        local v47 = Instance.new("Frame")
+        local vu48 = Instance.new("Frame")
+        local v49 = Instance.new("UICorner")
+        v32.Name = "KronHub"
+        v32.Parent = game.CoreGui
+        v33.Name = "Main"
+        v33.Parent = v32
+        v33.AnchorPoint = Vector2.new(0.5, 0.5)
+        v33.BackgroundColor3 = Color3.fromRGB(39, 39, 47)
+        v33.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        v33.BorderSizePixel = 0
+        v33.Position = UDim2.fromOffset((vu5.X - v33.Size.X.Offset) / 2, (vu5.Y - v33.Size.Y.Offset) / 2 - 50)
+        v33.Size = UDim2.new(0, 554, 0, 339)
+        v34.CornerRadius = UDim.new(0, 5)
+        v34.Name = "MainC"
+        v34.Parent = v33
+        v35.Name = "shadowHolder"
+        v35.Parent = v33
+        v35.BackgroundTransparency = 1
+        v35.Position = UDim2.new(- 0.0119124316, 0, - 0.0211184341, 0)
+        v35.Size = UDim2.new(1.02499998, 0, 1.03499997, 0)
+        v35.ZIndex = 0
+        v36.Name = "umbraShadow"
+        v36.Parent = v35
+        v36.AnchorPoint = Vector2.new(0.5, 0.5)
+        v36.BackgroundTransparency = 1
+        v36.Position = UDim2.new(0.5, 0, 0.5, 2)
+        v36.Size = UDim2.new(1, 4, 1, 4)
+        v36.ZIndex = 0
+        v36.Image = "rbxassetid://1316045217"
+        v36.ImageColor3 = Color3.fromRGB(0, 0, 0)
+        v36.ImageTransparency = 0.86
+        v36.ScaleType = Enum.ScaleType.Slice
+        v36.SliceCenter = Rect.new(10, 10, 118, 118)
+        v37.Name = "penumbraShadow"
+        v37.Parent = v35
+        v37.AnchorPoint = Vector2.new(0.5, 0.5)
+        v37.BackgroundTransparency = 1
+        v37.Position = UDim2.new(0.5, 0, 0.5, 2)
+        v37.Size = UDim2.new(1, 4, 1, 4)
+        v37.ZIndex = 0
+        v37.Image = "rbxassetid://1316045217"
+        v37.ImageColor3 = Color3.fromRGB(0, 0, 0)
+        v37.ImageTransparency = 0.88
+        v37.ScaleType = Enum.ScaleType.Slice
+        v37.SliceCenter = Rect.new(10, 10, 118, 118)
+        v38.Name = "ambientShadow"
+        v38.Parent = v35
+        v38.AnchorPoint = Vector2.new(0.5, 0.5)
+        v38.BackgroundTransparency = 1
+        v38.Position = UDim2.new(0.5, 0, 0.5, 2)
+        v38.Size = UDim2.new(1, 4, 1, 4)
+        v38.ZIndex = 0
+        v38.Image = "rbxassetid://1316045217"
+        v38.ImageColor3 = Color3.fromRGB(0, 0, 0)
+        v38.ImageTransparency = 0.88
+        v38.ScaleType = Enum.ScaleType.Slice
+        v38.SliceCenter = Rect.new(10, 10, 118, 118)
+        v39.Name = "Bar"
+        v39.Parent = v33
+        v39.BackgroundColor3 = Color3.fromRGB(29, 29, 35)
+        v39.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        v39.BorderSizePixel = 0
+        v39.Position = UDim2.new(1.10171761e-7, 0, 0, 0)
+        v39.Size = UDim2.new(0, 11, 0, 339)
+        v40.CornerRadius = UDim.new(0, 5)
+        v40.Name = "BarC"
+        v40.Parent = v39
+        v41.Name = "BarBackgorund"
+        v41.Parent = v39
+        v41.BackgroundColor3 = Color3.fromRGB(29, 29, 35)
+        v41.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        v41.BorderSizePixel = 0
+        v41.Position = UDim2.new(0.9, 0, 0, 0)
+        v41.Size = UDim2.new(0, 116, 0, 339)
+        vu42.Name = "ButtonsHolder"
+        vu42.Parent = v41
+        vu42.Active = true
+        vu42.BackgroundColor3 = Color3.fromRGB(29, 29, 35)
+        vu42.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        vu42.BorderSizePixel = 0
+        vu42.Position = UDim2.new(0, 0, 0.291584581, 0)
+        vu42.Size = UDim2.new(0, 114, 0, 238)
+        vu42.CanvasSize = UDim2.new(0, 0, 0, 0)
+        vu42.ScrollBarThickness = 0
+        vu43.Parent = vu42
+        vu43.SortOrder = Enum.SortOrder.LayoutOrder
+        vu43.Padding = UDim.new(0, 10)
+        v44.Name = "Icon"
+        v44.Parent = v41
+        v44.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        v44.BackgroundTransparency = 1
+        v44.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        v44.BorderSizePixel = 0
+        v44.Position = UDim2.new(- 0.10576915, 0, 0.0265486725, 0)
+        v44.Size = UDim2.new(0, 127, 0, 71)
+        v44.Image = "rbxassetid://" .. p30
+        v45.Name = "Line"
+        v45.Parent = v41
+        v45.BackgroundColor3 = Color3.fromRGB(39, 39, 47)
+        v45.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        v45.BorderSizePixel = 0
+        v45.Position = UDim2.new(0, 0, 0.260314047, 0)
+        v45.Size = UDim2.new(0, 107, 0, - 2)
+        v46.Name = "Liner"
+        v46.Parent = v39
+        v46.BackgroundColor3 = Color3.fromRGB(29, 29, 35)
+        v46.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        v46.BorderSizePixel = 0
+        v46.Position = UDim2.new(0.549998879, 0, 0, 0)
+        v46.Size = UDim2.new(0, 40, 0, 4)
+        v47.Name = "Tabs"
+        v47.Parent = v33
+        v47.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        v47.BackgroundTransparency = 1
+        v47.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        v47.BorderSizePixel = 0
+        v47.Position = UDim2.new(0.227436826, 0, 0.0265486725, 0)
+        v47.Size = UDim2.new(0, 428, 0, 320)
+        vu48.Name = "TabName"
+        vu48.Parent = v47
+        vu48.BackgroundColor3 = Color3.fromRGB(29, 29, 35)
+        vu48.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        vu48.BorderSizePixel = 0
+        vu48.Position = UDim2.new(0.0189999994, 0, 0, 0)
+        vu48.Size = UDim2.new(0, 413, 0, 320)
+        v49.CornerRadius = UDim.new(0, 5)
+        v49.Parent = vu48
+        vu203:DraggingEnabled(v41, v33)
+        local v50 = vu43
+        vu43.GetPropertyChangedSignal(v50, "AbsoluteContentSize"):Connect(function()
+            vu42.CanvasSize = UDim2.new(0, 0, 0, vu43.AbsoluteContentSize.Y + 0)
+        end)
+        if not game:GetService("UserInputService").KeyboardEnabled then
+            local vu51 = Instance.new("Frame")
+            local v52 = Instance.new("UIPadding")
+            local v53 = Instance.new("UIListLayout")
+            vu51.Name = "NotifyHolder"
+            vu51.Parent = v33
+            vu51.AnchorPoint = Vector2.new(0.5, 0.5)
+            vu51.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            vu51.BackgroundTransparency = 1
+            vu51.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            vu51.BorderSizePixel = 0
+            vu51.Position = UDim2.new(0.3947, 0, 1.1722, 0)
+            vu51.Size = UDim2.new(0, 439, 0, 117)
+            v52.Parent = vu51
+            v52.PaddingTop = UDim.new(0, 5)
+            v53.Parent = vu51
+            v53.FillDirection = Enum.FillDirection.Horizontal
+            v53.SortOrder = Enum.SortOrder.LayoutOrder
+            v53.Padding = UDim.new(0, 5)
+            function Notify(pu54, pu55, pu56)
+                task.spawn(function()
+                    local v57 = Instance.new("Frame")
+                    local v58 = Instance.new("UICorner")
+                    local v59 = Instance.new("TextLabel")
+                    local v60 = Instance.new("UIPadding")
+                    local v61 = Instance.new("TextLabel")
+                    v57.Parent = vu51
+                    v57.BackgroundColor3 = Color3.fromRGB(39, 39, 47)
+                    v57.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                    v57.BackgroundTransparency = 1
+                    v57.BorderSizePixel = 0
+                    v57.Size = UDim2.new(0, 218, 0, 42)
+                    v58.CornerRadius = UDim.new(0, 5)
+                    v58.Parent = v57
+                    v59.Parent = v57
+                    v59.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    v59.BackgroundTransparency = 1
+                    v59.Size = UDim2.new(0, 186, 0, 24)
+                    v59.Font = Enum.Font.SourceSansBold
+                    v59.Text = pu54
+                    v59.TextColor3 = Color3.fromRGB(255, 255, 255)
+                    v59.TextSize = 14
+                    v59.TextTransparency = 1
+                    v59.TextXAlignment = Enum.TextXAlignment.Left
+                    v60.Parent = v57
+                    v60.PaddingLeft = UDim.new(0, 10)
+                    v61.Parent = v57
+                    v61.BackgroundTransparency = 1
+                    v61.Position = UDim2.new(0, 0, 0.428571433, 0)
+                    v61.Size = UDim2.new(0, 186, 0, 24)
+                    v61.Font = Enum.Font.SourceSans
+                    v61.Text = pu55
+                    v61.TextTransparency = 1
+                    v61.TextColor3 = Color3.fromRGB(255, 255, 255)
+                    v61.TextSize = 14
+                    v61.TextWrapped = true
+                    v61.TextXAlignment = Enum.TextXAlignment.Left
+                    local v62 = game:GetService("TweenService")
+                    v62:Create(v59, TweenInfo.new(0.5), {
+                        TextTransparency = 0
+                    }):Play()
+                    v62:Create(v61, TweenInfo.new(0.5), {
+                        TextTransparency = 0
+                    }):Play()
+                    v62:Create(v57, TweenInfo.new(0.5), {
+                        BackgroundTransparency = 0
+                    }):Play()
+                    task.wait(pu56)
+                    v62:Create(v59, TweenInfo.new(0.5), {
+                        TextTransparency = 1
+                    }):Play()
+                    v62:Create(v61, TweenInfo.new(0.5), {
+                        TextTransparency = 1
+                    }):Play()
+                    v62:Create(v57, TweenInfo.new(0.5), {
+                        BackgroundTransparency = 1
+                    }):Play()
+                    task.wait(0.1)
+                    v57:Destroy()
+                end)
+            end
+        end
+        function vu31.NewTab(_, p63, p64)
+            local vu65 = {
+                Hover = false,
+                Active = false
+            }
+            local vu66 = Instance.new("ImageLabel")
+            local v67 = Instance.new("TextButton")
+            local vu68 = Instance.new("TextLabel")
+            local vu69 = Instance.new("ScrollingFrame")
+            local v70 = Instance.new("UIPadding")
+            local vu71 = Instance.new("UIListLayout")
+            vu66.Name = "Icon"
+            vu66.Parent = vu42
+            vu66.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            vu66.BackgroundTransparency = 1
+            vu66.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            vu66.BorderSizePixel = 0
+            vu66.Size = UDim2.new(0, 20, 0, 20)
+            vu66.Image = "rbxassetid://" .. p64
+            vu66.ImageColor3 = Color3.fromRGB(200, 200, 200)
+            v67.Parent = vu66
+            v67.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            v67.BackgroundTransparency = 1
+            v67.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            v67.BorderSizePixel = 0
+            v67.Size = UDim2.new(0, 115, 0, 20)
+            v67.AutoButtonColor = false
+            v67.Font = Enum.Font.SourceSans
+            v67.Text = ""
+            v67.TextColor3 = Color3.fromRGB(0, 0, 0)
+            v67.TextSize = 14
+            v67.TextTransparency = 1
+            vu68.Parent = vu66
+            vu68.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            vu68.BackgroundTransparency = 1
+            vu68.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            vu68.BorderSizePixel = 0
+            vu68.Position = UDim2.new(1.40379024, 0, 0, 0)
+            vu68.Size = UDim2.new(0, 85, 0, 20)
+            vu68.Font = Enum.Font.SourceSansBold
+            vu68.Text = p63
+            vu68.TextColor3 = Color3.fromRGB(200, 200, 200)
+            vu68.TextSize = 14
+            vu68.TextXAlignment = Enum.TextXAlignment.Left
+            vu69.Name = p63
+            vu69.Parent = vu48
+            vu69.Active = true
+            vu69.BackgroundColor3 = Color3.fromRGB(29, 29, 35)
+            vu69.BackgroundTransparency = 1
+            vu69.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            vu69.BorderSizePixel = 0
+            vu69.Size = UDim2.new(0, 413, 0, 320)
+            vu69.Visible = false
+            vu69.ScrollBarThickness = 2
+            v70.Parent = vu69
+            v70.PaddingTop = UDim.new(0, 5)
+            vu71.Parent = vu69
+            vu71.HorizontalAlignment = Enum.HorizontalAlignment.Center
+            vu71.SortOrder = Enum.SortOrder.LayoutOrder
+            vu71.Padding = UDim.new(0, 6)
+            local v72 = vu71
+            vu71.GetPropertyChangedSignal(v72, "AbsoluteContentSize"):Connect(function()
+                vu69.CanvasSize = UDim2.new(0, 0, 0, vu71.AbsoluteContentSize.Y + 8)
+            end)
+            function vu65.Activate(_)
+                if not vu65.Active then
+                    if vu31.CurrentTab ~= nil then
+                        vu31.CurrentTab:Deactivate()
+                    end
+                    vu65.Active = true
+                    vu203:tween(vu68, {
+                        TextColor3 = Color3.fromRGB(0, 106, 255)
+                    })
+                    vu203:tween(vu66, {
+                        ImageColor3 = Color3.fromRGB(0, 106, 255)
+                    })
+                    vu69.Visible = true
+                    vu31.CurrentTab = vu65
+                end
+            end
+            function vu65.Deactivate(_)
+                if vu65.Active then
+                    vu65.Active = false
+                    vu65.Hover = false
+                    vu203:tween(vu68, {
+                        TextColor3 = Color3.fromRGB(200, 200, 200)
+                    })
+                    vu203:tween(vu66, {
+                        ImageColor3 = Color3.fromRGB(200, 200, 200)
+                    })
+                    vu69.Visible = false
+                end
+            end
+            v67.MouseEnter:Connect(function()
+                vu65.Hover = true
+                if not vu65.Active then
+                    vu203:tween(vu68, {
+                        TextColor3 = Color3.fromRGB(255, 255, 255)
+                    })
+                    vu203:tween(vu66, {
+                        ImageColor3 = Color3.fromRGB(255, 255, 255)
+                    })
+                end
+            end)
+            v67.MouseLeave:Connect(function()
+                vu65.Hover = false
+                if not vu65.Active then
+                    vu203:tween(vu68, {
+                        TextColor3 = Color3.fromRGB(200, 200, 200)
+                    })
+                    vu203:tween(vu66, {
+                        ImageColor3 = Color3.fromRGB(200, 200, 200)
+                    })
+                end
+            end)
+            if game:GetService("UserInputService").KeyboardEnabled then
+                vu3.InputBegan:Connect(function(p73)
+                    if p73.UserInputType == Enum.UserInputType.MouseButton1 and vu65.Hover then
+                        vu65:Activate()
+                    end
+                end)
+            else
+                v67.MouseButton1Click:Connect(function()
+                    vu65:Activate()
+                end)
+            end
+            if vu31.CurrentTab == nil then
+                vu65:Activate()
+            end
+            function vu65.Section(_, p74)
+                local v75 = Instance.new("TextLabel")
+                local v76 = Instance.new("Frame")
+                v75.Name = "Section"
+                v75.Parent = vu69
+                v75.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                v75.BackgroundTransparency = 1
+                v75.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                v75.BorderSizePixel = 0
+                v75.Position = UDim2.new(0.0278450362, 0, 0, 0)
+                v75.Size = UDim2.new(0, 381, 0, 18)
+                v75.Font = Enum.Font.SourceSansBold
+                v75.Text = p74
+                v75.TextColor3 = Color3.fromRGB(255, 255, 255)
+                v75.TextSize = 14
+                v75.TextWrapped = true
+                v75.TextXAlignment = Enum.TextXAlignment.Left
+                v76.Name = "TextLiner"
+                v76.Parent = v75
+                v76.BackgroundColor3 = Color3.fromRGB(39, 39, 47)
+                v76.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                v76.BorderSizePixel = 0
+                v76.Position = UDim2.new(- 0.00499999989, 0, 1, 0)
+                v76.Size = UDim2.new(0, 44, 0, 2)
+            end
+            function vu65.TextBox(_, p77)
+                local v78 = Instance.new("TextLabel")
+                local v79 = Instance.new("UICorner")
+                v78.Name = "TextBox"
+                v78.Parent = vu69
+                v78.BackgroundColor3 = Color3.fromRGB(22, 22, 27)
+                v78.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                v78.BorderSizePixel = 0
+                v78.Position = UDim2.new(0.0314769968, 0, 0.0761904791, 0)
+                v78.Size = UDim2.new(0, 387, 0, 24)
+                v78.Font = Enum.Font.SourceSansBold
+                v78.Text = p77
+                v78.TextColor3 = Color3.fromRGB(255, 255, 255)
+                v78.TextSize = 14
+                v78.TextWrapped = true
+                v79.CornerRadius = UDim.new(0, 3)
+                v79.Parent = v78
+            end
+            function vu65.Button(_, p80, p81)
+                local vu82 = p81 or function()
+                end
+                local vu83 = Instance.new("TextButton")
+                local v84 = Instance.new("UICorner")
+                vu83.Parent = vu69
+                vu83.BackgroundColor3 = Color3.fromRGB(22, 22, 27)
+                vu83.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                vu83.BorderSizePixel = 0
+                vu83.Position = UDim2.new(0.0314769968, 0, 0.247619048, 0)
+                vu83.Size = UDim2.new(0, 387, 0, 33)
+                vu83.AutoButtonColor = false
+                vu83.Font = Enum.Font.SourceSansBold
+                vu83.Text = p80
+                vu83.TextColor3 = Color3.fromRGB(255, 255, 255)
+                vu83.TextSize = 14
+                v84.CornerRadius = UDim.new(0, 3)
+                v84.Parent = vu83
+                vu83.MouseButton1Click:Connect(function()
+                    vu203:tween(vu83, {
+                        BackgroundColor3 = Color3.fromRGB(0, 106, 255)
+                    })
+                    task.wait(0.1)
+                    vu203:tween(vu83, {
+                        BackgroundColor3 = Color3.fromRGB(22, 22, 27)
+                    })
+                    vu82()
+                end)
+            end
+            function vu65.Toggle(_, p85, p86, p87)
+                local vu88 = p87 or function()
+                end
+                local v89 = p86 or false
+                local vu90 = p85
+                vu7.flags[vu90] = v89
+                local v91 = Instance.new("TextButton")
+                local v92 = Instance.new("UICorner")
+                local v93 = Instance.new("TextLabel")
+                local v94 = Instance.new("Frame")
+                local v95 = Instance.new("UICorner")
+                local vu96 = Instance.new("Frame")
+                local v97 = Instance.new("UICorner")
+                v91.Name = "Toggle"
+                v91.Parent = vu69
+                v91.BackgroundColor3 = Color3.fromRGB(22, 22, 27)
+                v91.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                v91.BorderSizePixel = 0
+                v91.Position = UDim2.new(0.0314769968, 0, 0.247619048, 0)
+                v91.Size = UDim2.new(0, 387, 0, 33)
+                v91.AutoButtonColor = false
+                v91.Font = Enum.Font.SourceSansBold
+                v91.Text = ""
+                v91.TextColor3 = Color3.fromRGB(255, 255, 255)
+                v91.TextSize = 14
+                v92.CornerRadius = UDim.new(0, 3)
+                v92.Name = "UICToggle"
+                v92.Parent = v91
+                v93.Name = "TextToggle"
+                v93.Parent = v91
+                v93.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                v93.BackgroundTransparency = 1
+                v93.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                v93.BorderSizePixel = 0
+                v93.Position = UDim2.new(0.0232558139, 0, 0.212121218, 0)
+                v93.Size = UDim2.new(0, 200, 0, 18)
+                v93.Font = Enum.Font.SourceSansBold
+                v93.Text = p85
+                v93.TextColor3 = Color3.fromRGB(255, 255, 255)
+                v93.TextSize = 14
+                v93.TextXAlignment = Enum.TextXAlignment.Left
+                v94.Name = "BackToggle"
+                v94.Parent = v91
+                v94.BackgroundColor3 = Color3.fromRGB(29, 29, 35)
+                v94.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                v94.BorderSizePixel = 0
+                v94.Position = UDim2.new(0.860465288, 0, 0.212121218, 0)
+                v94.Size = UDim2.new(0, 40, 0, 18)
+                v95.CornerRadius = UDim.new(1, 3)
+                v95.Name = "UIC1"
+                v95.Parent = v94
+                vu96.Name = "InToggle"
+                vu96.Parent = v94
+                vu96.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                vu96.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                vu96.BorderSizePixel = 0
+                vu96.Size = UDim2.new(0, 19, 0, 18)
+                v97.CornerRadius = UDim.new(1, 3)
+                v97.Name = "UIC2"
+                v97.Parent = vu96
+                local vu99 = {
+                    Set = function(_, p98)
+                        if p98 == nil then
+                            p98 = not vu7.flags[vu90]
+                        end
+                        vu96:TweenPosition(p98 and UDim2.new(0.525, 0, 0, 0) or UDim2.new(0, 0, 0, 0), "Out", "Sine", 0.1, false)
+                        vu7.flags[vu90] = p98
+                        vu88(p98)
+                    end
+                }
+                if v89 then
+                    vu99:Set(true)
+                end
+                v91.MouseButton1Click:Connect(function()
+                    vu99:Set()
+                end)
+                return vu99
+            end
+            function vu65.Slider(_, p100, p101, p102, p103, p104, p105)
+                local vu106 = p105 or function()
+                end
+                local vu107 = p102 or 1
+                local vu108 = p103 or 10
+                local vu109 = p101 or vu107
+                local vu110 = p104 or false
+                local vu111 = p100
+                vu7.flags[vu111] = vu109
+                local v112 = Instance.new("TextButton")
+                local v113 = Instance.new("UICorner")
+                local v114 = Instance.new("TextLabel")
+                local vu115 = Instance.new("Frame")
+                local v116 = Instance.new("UICorner")
+                local vu117 = Instance.new("Frame")
+                local v118 = Instance.new("UICorner")
+                local vu119 = Instance.new("TextBox")
+                v112.Name = "Slider"
+                v112.Parent = vu69
+                v112.BackgroundColor3 = Color3.fromRGB(22, 22, 27)
+                v112.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                v112.BorderSizePixel = 0
+                v112.Position = UDim2.new(0.0314769968, 0, 0, 0)
+                v112.Size = UDim2.new(0, 387, 0, 47)
+                v112.AutoButtonColor = false
+                v112.Font = Enum.Font.SourceSansBold
+                v112.Text = ""
+                v112.TextColor3 = Color3.fromRGB(255, 255, 255)
+                v112.TextSize = 14
+                v113.CornerRadius = UDim.new(0, 3)
+                v113.Name = "UICSlider"
+                v113.Parent = v112
+                v114.Name = "TextToggle"
+                v114.Parent = v112
+                v114.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                v114.BackgroundTransparency = 1
+                v114.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                v114.BorderSizePixel = 0
+                v114.Position = UDim2.new(0.023, 0, 0.100000001, 0)
+                v114.Size = UDim2.new(0, 200, 0, 18)
+                v114.Font = Enum.Font.SourceSansBold
+                v114.Text = p100
+                v114.TextColor3 = Color3.fromRGB(255, 255, 255)
+                v114.TextSize = 14
+                v114.TextXAlignment = Enum.TextXAlignment.Left
+                vu115.Name = "BackSlider"
+                vu115.Parent = v112
+                vu115.BackgroundColor3 = Color3.fromRGB(29, 29, 35)
+                vu115.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                vu115.BorderSizePixel = 0
+                vu115.Position = UDim2.new(0.0206719916, 0, 0.671212792, 0)
+                vu115.Size = UDim2.new(0, 369, 0, 6)
+                v116.CornerRadius = UDim.new(1, 3)
+                v116.Name = "UICS"
+                v116.Parent = vu115
+                vu117.Name = "SliderLine"
+                vu117.Parent = vu115
+                vu117.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                vu117.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                vu117.BorderSizePixel = 0
+                vu117.Size = UDim2.new(0.894, 0, 1, 0)
+                v118.CornerRadius = UDim.new(1, 3)
+                v118.Name = "UIC1"
+                v118.Parent = vu117
+                vu119.Name = "BoxSlider"
+                vu119.Parent = v112
+                vu119.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                vu119.BackgroundTransparency = 1
+                vu119.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                vu119.BorderSizePixel = 0
+                vu119.Position = UDim2.new(0.899, 0, 0.1, 0)
+                vu119.Size = UDim2.new(0, 28, 0, 18)
+                vu119.Font = Enum.Font.SourceSansBold
+                vu119.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+                vu119.Text = "1"
+                vu119.TextColor3 = Color3.fromRGB(255, 255, 255)
+                vu119.TextSize = 14
+                vu119.TextXAlignment = Enum.TextXAlignment.Right
+                local vu124 = {
+                    Set = function(_, p120)
+                        local v121 = (vu8.X - vu115.AbsolutePosition.X) / vu115.AbsoluteSize.X
+                        if p120 then
+                            v121 = (p120 - vu107) / (vu108 - vu107)
+                        end
+                        local v122 = math.clamp(v121, 0, 1)
+                        local v123
+                        if vu110 then
+                            v123 = p120 or tonumber(string.format("%.1f", tostring(vu107 + (vu108 - vu107) * v122)))
+                        else
+                            v123 = p120 or math.floor(vu107 + (vu108 - vu107) * v122)
+                        end
+                        vu7.flags[vu111] = tonumber(v123)
+                        vu119.Text = tostring(v123)
+                        vu117.Size = UDim2.new(v122, 0, 1, 0)
+                        vu106(tonumber(v123))
+                    end
+                }
+                local v125 = vu124
+                vu124.Set(v125, tonumber(vu109))
+                local vu126 = false
+                local vu127 = false
+                local vu128 = {
+                    [""] = true,
+                    ["-"] = true
+                }
+                v112.InputBegan:Connect(function(p129)
+                    if p129.UserInputType == Enum.UserInputType.MouseButton1 then
+                        vu124:Set()
+                        vu126 = true
+                    end
+                end)
+                game:GetService("UserInputService").InputEnded:Connect(function(p130)
+                    if vu126 and p130.UserInputType == Enum.UserInputType.MouseButton1 then
+                        vu126 = false
+                    end
+                end)
+                game:GetService("UserInputService").InputChanged:Connect(function(p131)
+                    if vu126 and p131.UserInputType == Enum.UserInputType.MouseMovement then
+                        vu124:Set()
+                    end
+                end)
+                vu119.Focused:Connect(function()
+                    vu127 = true
+                end)
+                vu119.FocusLost:Connect(function()
+                    vu127 = false
+                    if vu119.Text == "" then
+                        vu124:Set(vu109)
+                    end
+                    if tonumber(vu119.Text) < vu107 then
+                        vu119.Text = vu107
+                        vu119.Text = tonumber(vu107)
+                    end
+                end)
+                local v132 = vu119
+                vu119.GetPropertyChangedSignal(v132, "Text"):Connect(function()
+                    if vu127 then
+                        vu119.Text = vu119.Text:gsub("%D+", "")
+                        local v133 = vu119.Text
+                        if tonumber(v133) then
+                            if not vu128[v133] then
+                                if vu108 < tonumber(v133) then
+                                    v133 = vu108
+                                    vu119.Text = tostring(vu108)
+                                end
+                                if vu107 <= tonumber(v133) then
+                                    vu124:Set(tonumber(v133))
+                                end
+                            end
+                        else
+                            vu119.Text = vu119.Text:gsub("%D+", "")
+                        end
+                    end
+                end)
+                return vu124
+            end
+            function vu65.KeyBind(_, p134, pu135, p136)
+                local vu137 = p136 or function()
+                end
+                if typeof(pu135) == "string" then
+                    pu135 = Enum.KeyCode[pu135] or pu135
+                end
+                local vu138 = {
+                    Return = true,
+                    Space = true,
+                    Tab = true,
+                    Backquote = true,
+                    CapsLock = true,
+                    Escape = true,
+                    Unknown = true
+                }
+                local vu139 = {
+                    RightControl = "Right Ctrl",
+                    LeftControl = "Left Ctrl",
+                    LeftShift = "Left Shift",
+                    RightShift = "Right Shift",
+                    Semicolon = ";",
+                    Quote = "\"",
+                    LeftBracket = "[",
+                    RightBracket = "]",
+                    Equals = "=",
+                    Minus = "-",
+                    RightAlt = "Right Alt",
+                    LeftAlt = "Left Alt"
+                }
+                local vu140 = not pu135 or vu139[pu135.Name] or (pu135.Name or "None")
+                local v141 = Instance.new("Frame")
+                local v142 = Instance.new("TextLabel")
+                local v143 = Instance.new("UICorner")
+                local vu144 = Instance.new("TextButton")
+                local v145 = Instance.new("UICorner")
+                v141.Name = "KeyBind"
+                v141.Parent = vu69
+                v141.BackgroundColor3 = Color3.fromRGB(22, 22, 27)
+                v141.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                v141.BorderSizePixel = 0
+                v141.Position = UDim2.new(0.0314769968, 0, 0, 0)
+                v141.Size = UDim2.new(0, 387, 0, 38)
+                v142.Name = "TextKey"
+                v142.Parent = v141
+                v142.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                v142.BackgroundTransparency = 1
+                v142.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                v142.BorderSizePixel = 0
+                v142.Position = UDim2.new(0.0232558139, 0, 0.238437057, 0)
+                v142.Size = UDim2.new(0, 200, 0, 18)
+                v142.Font = Enum.Font.SourceSansBold
+                v142.Text = p134
+                v142.TextColor3 = Color3.fromRGB(255, 255, 255)
+                v142.TextSize = 14
+                v142.TextXAlignment = Enum.TextXAlignment.Left
+                v143.CornerRadius = UDim.new(0, 3)
+                v143.Name = "UICK"
+                v143.Parent = v141
+                vu144.Name = "KeyButton"
+                vu144.Parent = v141
+                vu144.BackgroundColor3 = Color3.fromRGB(29, 29, 35)
+                vu144.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                vu144.BorderSizePixel = 0
+                vu144.Position = UDim2.new(0.818656325, 0, 0.238313377, 0)
+                vu144.Size = UDim2.new(0, 59, 0, 20)
+                vu144.AutoButtonColor = false
+                vu144.Font = Enum.Font.SourceSansBold
+                vu144.Text = "LeftAlt"
+                vu144.TextColor3 = Color3.fromRGB(255, 255, 255)
+                vu144.TextSize = 12
+                v145.CornerRadius = UDim.new(0, 3)
+                v145.Name = "UICK1"
+                v145.Parent = vu144
+                game:GetService("UserInputService").InputBegan:Connect(function(p146, p147)
+                    if p147 then
+                        return
+                    elseif p146.UserInputType == Enum.UserInputType.Keyboard then
+                        if p146.KeyCode == pu135 then
+                            vu137(pu135.Name)
+                        end
+                    else
+                        return
+                    end
+                end)
+                vu144.MouseButton1Click:Connect(function()
+                    vu144.Text = "..."
+                    task.wait()
+                    local v148, _ = game.UserInputService.InputEnded:Wait()
+                    local v149 = tostring(v148.KeyCode.Name)
+                    if v148.UserInputType == Enum.UserInputType.Keyboard then
+                        if vu138[v149] then
+                            vu144.Text = vu140
+                        else
+                            task.wait()
+                            pu135 = Enum.KeyCode[v149]
+                            vu144.Text = vu139[v149] or v149
+                        end
+                    else
+                        vu144.Text = vu140
+                        return
+                    end
+                end)
+            end
+            function vu65.DropDown(_, pu150, p151, p152, p153)
+                local vu154 = p153 or function()
+                end
+                local vu155 = p152 or false
+                local vu156 = pu150
+                assert(pu150, "a name is required to create a dropdown")
+                local v157 = Instance.new("TextButton")
+                local v158 = Instance.new("UICorner")
+                local vu159 = Instance.new("TextBox")
+                local v160 = Instance.new("UIPadding")
+                local vu161 = Instance.new("ImageButton")
+                local vu162 = Instance.new("Frame")
+                local vu163 = Instance.new("ScrollingFrame")
+                local vu164 = Instance.new("UIListLayout")
+                local v165 = Instance.new("UICorner")
+                v157.Name = "DropButton"
+                v157.Parent = vu69
+                v157.BackgroundColor3 = Color3.fromRGB(22, 22, 27)
+                v157.BorderSizePixel = 0
+                v157.ClipsDescendants = true
+                v157.Position = UDim2.new(0.0204359666, 0, 0.0790190771, 0)
+                v157.Size = UDim2.new(0, 387, 0, 33)
+                v157.AutoButtonColor = false
+                v157.Font = Enum.Font.SourceSansBold
+                v157.Text = pu150
+                v157.TextColor3 = Color3.fromRGB(255, 255, 255)
+                v157.TextSize = 13
+                v157.TextTransparency = 1
+                v158.CornerRadius = UDim.new(0, 3)
+                v158.Name = "UIDrop"
+                v158.Parent = v157
+                vu159.Name = "BoxDrop"
+                vu159.Parent = v157
+                vu159.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                vu159.BackgroundTransparency = 1
+                vu159.BorderColor3 = Color3.fromRGB(27, 42, 53)
+                vu159.BorderSizePixel = 0
+                vu159.Size = UDim2.new(0, 335, 0, 33)
+                vu159.Font = Enum.Font.SourceSansBold
+                vu159.Text = pu150
+                vu159.TextColor3 = Color3.fromRGB(255, 255, 255)
+                vu159.TextSize = 13
+                vu159.TextXAlignment = Enum.TextXAlignment.Left
+                v160.Name = "UIDrop"
+                v160.Parent = vu159
+                v160.PaddingLeft = UDim.new(0, 6)
+                vu161.Name = "Icon"
+                vu161.Parent = v157
+                vu161.BackgroundTransparency = 1
+                vu161.BorderSizePixel = 0
+                vu161.ClipsDescendants = true
+                vu161.Position = UDim2.new(0.93, 0, 0.151, 0)
+                vu161.Rotation = 0
+                vu161.Size = UDim2.new(0, 23, 0, 22)
+                vu161.ZIndex = 1
+                vu161.Image = "rbxassetid://117983917327514"
+                vu161.SliceCenter = Rect.new(2, 2, 298, 298)
+                vu161.ImageColor3 = Color3.fromRGB(255, 255, 255)
+                vu162.Name = "DropHolder"
+                vu162.Parent = vu69
+                vu162.BackgroundColor3 = Color3.fromRGB(39, 39, 47)
+                vu162.BorderSizePixel = 0
+                vu162.ClipsDescendants = true
+                vu162.Position = UDim2.new(0.0204359666, 0, 0.398406386, 0)
+                vu162.Size = UDim2.new(0, 387, 0, 0)
+                vu162.Visible = false
+                vu163.Name = "ScrollingFrame"
+                vu163.Parent = vu162
+                vu163.Active = true
+                vu163.BackgroundColor3 = Color3.fromRGB(39, 39, 47)
+                vu163.BorderSizePixel = 0
+                vu163.Position = UDim2.new(0, 0, 0.0413798429, 0)
+                vu163.Size = UDim2.new(0, 387, 0, 146)
+                vu163.CanvasSize = UDim2.new(0, 0, 0, 0)
+                vu163.ScrollBarThickness = 0
+                vu164.Name = "UIListLayout"
+                vu164.Parent = vu163
+                vu164.HorizontalAlignment = Enum.HorizontalAlignment.Center
+                vu164.SortOrder = Enum.SortOrder.LayoutOrder
+                vu164.Padding = UDim.new(0, 5)
+                v165.CornerRadius = UDim.new(0, 3)
+                v165.Name = "UIDrop"
+                v165.Parent = vu162
+                local v166 = vu159
+                vu159.GetPropertyChangedSignal(v166, "Text"):connect(function()
+                    vu159.TextXAlignment = vu159.TextFits and Enum.TextXAlignment.Left or Enum.TextXAlignment.Right
+                end)
+                local function vu171()
+                    local v167 = next
+                    local v168, v169 = vu163:GetChildren()
+                    while true do
+                        local v170
+                        v169, v170 = v167(v168, v169)
+                        if v169 == nil then
+                            break
+                        end
+                        if v170:IsA("TextButton") and v170.Name == "DB" then
+                            v170.Visible = true
+                        end
+                    end
+                end
+                local function vu177(p172)
+                    if p172 == "" then
+                        vu171()
+                    end
+                    local v173 = next
+                    local v174, v175 = vu163:GetChildren()
+                    while true do
+                        local v176
+                        v175, v176 = v173(v174, v175)
+                        if v175 == nil then
+                            break
+                        end
+                        if v176:IsA("TextButton") and v176.Name == "DB" then
+                            if v176.Text:lower():match(p172:lower()) then
+                                v176.Visible = true
+                            else
+                                v176.Visible = false
+                            end
+                        end
+                    end
+                end
+                local vu178 = false
+                local function vu180()
+                    vu178 = not vu178
+                    if vu178 then
+                        vu162.Visible = true
+                    end
+                    local v179 = {
+                        Rotation = vu178 and - 90 or 0
+                    }
+                    game:GetService("TweenService"):Create(vu161, TweenInfo.new(0.1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), v179):Play()
+                    vu162:TweenSize(UDim2.new(0, 387, 0, vu178 and 160 or 0), "Out", "Sine", 0.3, false)
+                    task.wait(0.15)
+                    if not vu178 then
+                        vu162.Visible = false
+                    end
+                    vu171()
+                end
+                local v181 = vu159
+                vu159.GetPropertyChangedSignal(v181, "Text"):Connect(function()
+                    if vu178 then
+                        if vu159.Text ~= pu150 then
+                            vu177(vu159.Text)
+                        end
+                    else
+                        return
+                    end
+                end)
+                local vu182 = false
+                vu159.Focused:Connect(function()
+                    if not vu178 then
+                        vu180()
+                    end
+                    vu182 = true
+                end)
+                vu159.FocusLost:Connect(function()
+                    if vu159.Text == "" then
+                        vu159.Text = pu150
+                    end
+                    if vu155 then
+                        if vu182 then
+                            return
+                        end
+                        vu159.Text = pu150
+                    end
+                    if vu178 then
+                        vu180()
+                    end
+                end)
+                vu161.MouseButton1Click:Connect(function()
+                    if not vu7.locked then
+                        vu180()
+                    end
+                end)
+                local v183 = vu164
+                vu164.GetPropertyChangedSignal(v183, "AbsoluteContentSize"):Connect(function()
+                    vu163.CanvasSize = UDim2.new(0, 0, 0, vu164.AbsoluteContentSize.Y + 0)
+                end)
+                local vu184 = nil
+                local vu201 = {
+                    AddOption = function(_, p185)
+                        local vu186 = Instance.new("TextButton")
+                        local v187 = Instance.new("UICorner")
+                        vu186.Name = "DB"
+                        vu186.Parent = vu163
+                        vu186.BackgroundColor3 = Color3.fromRGB(22, 22, 27)
+                        vu186.BorderSizePixel = 0
+                        vu186.Position = UDim2.new(0.00997150969, 0, 0, 0)
+                        vu186.Size = UDim2.new(0, 369, 0, 33)
+                        vu186.AutoButtonColor = false
+                        vu186.Font = Enum.Font.SourceSansBold
+                        vu186.Text = p185
+                        vu186.TextColor3 = Color3.fromRGB(255, 255, 255)
+                        vu186.TextSize = 13
+                        v187.CornerRadius = UDim.new(0, 3)
+                        v187.Name = "UI"
+                        v187.Parent = vu186
+                        vu186.MouseButton1Click:Connect(function()
+                            vu154(vu186.Text)
+                            vu7.flags[vu156] = vu186.Text
+                            vu180()
+                            vu182 = false
+                            if vu155 then
+                                vu159.Text = pu150
+                            else
+                                vu159.Text = "Selected: " .. vu186.Text
+                                if vu184 ~= nil then
+                                    vu184.TextColor3 = Color3.fromRGB(225, 225, 225)
+                                end
+                                vu186.TextColor3 = Color3.fromRGB(0, 106, 255)
+                                vu184 = vu186
+                            end
+                        end)
+                    end,
+                    SetList = function(_, p188)
+                        local v189 = next
+                        local v190, v191 = vu163:GetChildren()
+                        while true do
+                            local v192
+                            v191, v192 = v189(v190, v191)
+                            if v191 == nil then
+                                break
+                            end
+                            if v192:IsA("TextButton") and v192.Name == "Option" then
+                                v192:Destroy()
+                            end
+                        end
+                        local v193 = next
+                        local v194 = nil
+                        while true do
+                            local v195
+                            v194, v195 = v193(p188, v194)
+                            if v194 == nil then
+                                break
+                            end
+                            vu201:AddOption(v195)
+                        end
+                    end,
+                    RemoveOption = function(_, p196)
+                        local v197 = next
+                        local v198, v199 = vu163:GetChildren()
+                        while true do
+                            local v200
+                            v199, v200 = v197(v198, v199)
+                            if v199 == nil then
+                                break
+                            end
+                            if v200:IsA("TextButton") and (v200.Name == "Option" and v200.Text == p196) then
+                                v200:Destroy()
+                            end
+                        end
+                    end
+                }
+                local v202 = vu201
+                vu201.SetList(v202, p151)
+                return vu201
+            end
+            return vu65
+        end
+        return vu31
+    end
+}
+local v204
+if game:GetService("UserInputService").KeyboardEnabled then
+    local v205 = Instance.new("ScreenGui")
+    local vu206 = Instance.new("Frame")
+    local v207 = Instance.new("UIPadding")
+    local v208 = Instance.new("UIListLayout")
+    v205.Name = "NotifyGui"
+    v205.Parent = game:GetService("CoreGui")
+    v205.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    vu206.Name = "NotifyHolder"
+    vu206.Parent = v205
+    vu206.AnchorPoint = Vector2.new(0.5, 0.5)
+    vu206.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    vu206.BackgroundTransparency = 1
+    vu206.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    vu206.BorderSizePixel = 0
+    vu206.Position = UDim2.new(0.936999977, 0, 0.879999995, 0)
+    vu206.Size = UDim2.new(0, 168, 0, 229)
+    v207.Parent = vu206
+    v207.PaddingTop = UDim.new(0, 5)
+    v208.Parent = vu206
+    v208.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    v208.SortOrder = Enum.SortOrder.LayoutOrder
+    v208.VerticalAlignment = Enum.VerticalAlignment.Bottom
+    v208.Padding = UDim.new(0, 5)
+    function Notify(pu209, pu210, pu211)
+        task.spawn(function()
+            local v212 = Instance.new("Frame")
+            local v213 = Instance.new("UICorner")
+            local v214 = Instance.new("TextLabel")
+            local v215 = Instance.new("UIPadding")
+            local v216 = Instance.new("TextLabel")
+            v212.Parent = vu206
+            v212.BackgroundColor3 = Color3.fromRGB(39, 39, 47)
+            v212.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            v212.BorderSizePixel = 0
+            v212.BackgroundTransparency = 1
+            v212.Position = UDim2.new(- 0.0432128906, 0, 0.8125, 0)
+            v212.Size = UDim2.new(0, 218, 0, 42)
+            v213.CornerRadius = UDim.new(0, 5)
+            v213.Name = "MainC"
+            v213.Parent = v212
+            v214.Parent = v212
+            v214.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            v214.BackgroundTransparency = 1
+            v214.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            v214.BorderSizePixel = 0
+            v214.Size = UDim2.new(0, 186, 0, 24)
+            v214.Font = Enum.Font.SourceSansBold
+            v214.Text = pu209
+            v214.TextColor3 = Color3.fromRGB(255, 255, 255)
+            v214.TextSize = 14
+            v214.TextTransparency = 1
+            v214.TextWrapped = true
+            v214.TextXAlignment = Enum.TextXAlignment.Left
+            v215.Parent = v212
+            v215.PaddingLeft = UDim.new(0, 10)
+            v216.Parent = v212
+            v216.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            v216.BackgroundTransparency = 1
+            v216.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            v216.BorderSizePixel = 0
+            v216.Position = UDim2.new(0, 0, 0.428571433, 0)
+            v216.Size = UDim2.new(0, 186, 0, 24)
+            v216.Font = Enum.Font.SourceSans
+            v216.Text = pu210
+            v216.TextTransparency = 1
+            v216.TextColor3 = Color3.fromRGB(255, 255, 255)
+            v216.TextSize = 14
+            v216.TextWrapped = true
+            v216.TextXAlignment = Enum.TextXAlignment.Left
+            game:GetService("TweenService"):Create(v214, TweenInfo.new(0.5), {
+                TextTransparency = 0
+            }):Play()
+            game:GetService("TweenService"):Create(v216, TweenInfo.new(0.5), {
+                TextTransparency = 0
+            }):Play()
+            game:GetService("TweenService"):Create(v212, TweenInfo.new(0.5), {
+                BackgroundTransparency = 0
+            }):Play()
+            task.wait(pu211)
+            game:GetService("TweenService"):Create(v214, TweenInfo.new(0.5), {
+                TextTransparency = 1
+            }):Play()
+            game:GetService("TweenService"):Create(v216, TweenInfo.new(0.5), {
+                TextTransparency = 1
+            }):Play()
+            game:GetService("TweenService"):Create(v212, TweenInfo.new(0.5), {
+                BackgroundTransparency = 1
+            }):Play()
+            task.wait(0.1)
+            v212:Destroy()
+        end)
+    end
+    v204 = vu203
+else
+    v204 = vu203
+end
+repeat
+    task.wait()
+until game:IsLoaded()
+if v1 then
+    UI = v204:Create("91615486582153")
+else
+    UI = v204:Create("99550526377485")
+end
+local vu217 = game.Players.LocalPlayer
+local vu218 = Vector3.new(0, 0, 0)
+getgenv().AutoDig = false
+getgenv().AutoFarm = false
+getgenv().CollectTokens = false
+getgenv().collectbubble = false
+getgenv().placesprinkler = false
+getgenv().convertballon = false
+getgenv().TrainSnail = false
+getgenv().Speed = 16
+getgenv().AutoFarmSpeed = false
+local vu219 = vu217.CoreStats.Pollen
+local vu220 = vu217.CoreStats.Capacity
+local _ = game.Players.LocalPlayer.Character
+local _ = math.huge
+local vu221 = {
+    PineTreeForest = {
+        loc = Vector3.new(- 327.4613037109375, 68.4471664428711, - 183.5044708251953)
+    },
+    Dandelion = {
+        loc = Vector3.new(- 34.25540542602539, 4.447189807891846, 220.86524963378906)
+    },
+    Sunflower = {
+        loc = Vector3.new(- 216.62339782714844, 4.447189807891846, 177.5602264404297)
+    },
+    Mushroom = {
+        loc = Vector3.new(- 97.478515625, 4.447189807891846, 118.50936889648438)
+    },
+    Blue_Flower = {
+        loc = Vector3.new(148.40052795410156, 4.447190284729004, 101.38568115234375)
+    },
+    Clover = {
+        loc = Vector3.new(154.9808349609375, 33.94717788696289, 194.5747528076172)
+    },
+    Spider = {
+        loc = Vector3.new(- 45.04277420043945, 20.447187423706055, - 5.353416442871094)
+    },
+    Strawberry = {
+        loc = Vector3.new(- 179.03378295898438, 20.447185516357422, - 5.379249095916748)
+    },
+    Bamboo = {
+        loc = Vector3.new(132.03982543945312, 20.447189331054688, - 26.6138858795166)
+    },
+    Pineapple = {
+        loc = Vector3.new(251.38278198242188, 68.4471664428711, - 207.9362030029297)
+    },
+    Stump = {
+        loc = Vector3.new(420.14105224609375, 96.42591857910156, - 174.9627685546875)
+    },
+    Pumpkin = {
+        loc = Vector3.new(- 201.85940551757812, 68.4471664428711, - 184.8004608154297)
+    },
+    Cactus = {
+        loc = Vector3.new(- 193.70953369140625, 68.4471664428711, - 105.5277328491211)
+    },
+    Rose = {
+        loc = Vector3.new(- 326.4270324707031, 20.397188186645508, 126.5758056640625)
+    },
+    Mountain = {
+        loc = Vector3.new(76.49232482910156, 176.4471435546875, - 164.65086364746094)
+    },
+    Coconut = {
+        loc = Vector3.new(- 262.40863037109375, 71.89717102050781, 466.45220947265625)
+    },
+    Pepper = {
+        loc = Vector3.new(- 488.4244079589844, 123.648681640625, 535.5321655273438)
+    }
+}
+local vu222 = vu221.Sunflower
+local vu223 = vu221.Sunflower
+local v224, v225, v226 = pairs(game:GetService("Workspace").Honeycombs:GetChildren())
+local v227 = false
+local v228 = nil
+while true do
+    local v229
+    v226, v229 = v224(v225, v226)
+    if v226 == nil then
+        break
+    end
+    if v229:IsA("Model") and v229:FindFirstChild("patharrow") and (v229.patharrow:FindFirstChild("Base") and (v229:FindFirstChild("HiveID") and (v229:FindFirstChild("Owner") and v229.Owner.Value == vu217))) then
+        vu218 = Vector3.new(v229.patharrow.Base.Position.X, v229.patharrow.Base.Position.Y, v229.patharrow.Base.Position.Z) + Vector3.new(0, 1, 0)
+        v228 = v229.HiveID.Value
+        v227 = true
+        break
+    end
+end
+local v230, v231, v232 = pairs(game:GetService("Workspace").Honeycombs:GetChildren())
+while true do
+    local v233
+    v232, v233 = v230(v231, v232)
+    if v232 == nil then
+        break
+    end
+    if v233:IsA("Model") and v233:FindFirstChild("patharrow") and (v233.patharrow:FindFirstChild("Base") and (v233:FindFirstChild("HiveID") and (v233:FindFirstChild("Owner") and (v233.Owner.Value == nil and v227 == false)))) then
+        vu218 = Vector3.new(v233.patharrow.Base.Position.X, v233.patharrow.Base.Position.Y, v233.patharrow.Base.Position.Z) + Vector3.new(0, 1, 0)
+        v228 = v233.HiveID.Value
+        break
+    end
+end
+game:GetService("ReplicatedStorage").Events.ClaimHive:FireServer(v228)
+function Teleport_Bypass(p234)
+    if vu217.Character and vu217.Character:FindFirstChild("HumanoidRootPart") then
+        local v235 = CFrame.new(p234)
+        local v236 = game:GetService("TweenService"):Create(vu217.Character.HumanoidRootPart, TweenInfo.new(2, Enum.EasingStyle.Linear), {
+            CFrame = v235
+        })
+        v236:Play()
+        v236.Completed:Wait()
+    end
+end
+local _ = ({
+    ["The Den"] = CFrame.new(323, 49, 1930),
+    Lighthouse = CFrame.new(1464.8, 356.3, 3257.2),
+    Safari = CFrame.new(111.853, 11.0005, - 998.805),
+    Bridge = CFrame.new(112.308, 11.0005, - 782.358),
+    ["Bob\'s Shack"] = CFrame.new(260, 8, - 2542),
+    ["EndTimes Cave"] = CFrame.new(113, - 214, - 951),
+    ["The Swamp"] = CFrame.new(- 1209, 132, - 801),
+    ["The Cabin"] = CFrame.new(1244, 66, 2306),
+    Volcano = CFrame.new(- 1585, 625, 1140),
+    ["Boxed Cars"] = CFrame.new(509, 5.2, - 1463),
+    ["Tiaga Peak"] = CFrame.new(1560, 410, 3274),
+    ["Land Store"] = CFrame.new(258, 5, - 99),
+    ["Link\'s Logic"] = CFrame.new(4605, 3, - 727),
+    ["Palm Island"] = CFrame.new(2549, - 5, - 42),
+    ["Palm Island 2"] = CFrame.new(1960, - 5.9, - 1501),
+    ["Palm Island 3"] = CFrame.new(4344, - 5.9, - 1813),
+    ["Fine Art Shop"] = CFrame.new(5207, - 166, 719),
+    ["SnowGlow Biome"] = CFrame.new(- 1086.85, - 5.89978, - 945.316),
+    Cave = CFrame.new(3581, - 179, 430),
+    ["Shrine Of Sight"] = CFrame.new(- 1600, 195, 919),
+    ["Fancy Furnishings"] = CFrame.new(491, 13, - 1720),
+    Docks = CFrame.new(1114, 3.2, - 197),
+    ["Strange Man"] = CFrame.new(1061, 20, 1131),
+    ["Wood Dropoff"] = CFrame.new(323.406, - 2.8, 134.734),
+    ["Snow Biome"] = CFrame.new(889.955, 59.7999, 1195.55),
+    ["Wood RUs"] = CFrame.new(265, 5, 57),
+    ["Green Box"] = CFrame.new(- 1668.05, 351.174, 1475.39),
+    Spawn = CFrame.new(172, 2, 74),
+    ["Cherry Meadow"] = CFrame.new(220.9, 59.8, 1305.8),
+    ["Bird Cave"] = CFrame.new(4813.1, 33.5, - 978.8)
+}).Spawn
+game.Players.LocalPlayer.CharacterAdded:Connect(function(p237)
+    p237:WaitForChild("Humanoid")
+    local v238, v239, v240 = pairs(Enum.HumanoidStateType:GetEnumItems())
+    while true do
+        local v241
+        v240, v241 = v238(v239, v240)
+        if v240 == nil then
+            break
+        end
+        if v241 == Enum.HumanoidStateType.Ragdoll or v241 == Enum.HumanoidStateType.FallingDown then
+            p237.Humanoid:SetStateEnabled(v241, false)
+        end
+    end
+end)
+game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
+local v242, v243, v244 = pairs(Enum.HumanoidStateType:GetEnumItems())
+while true do
+    local v245, v246 = v242(v243, v244)
+    if v245 == nil then
+        break
+    end
+    v244 = v245
+    if v246 == Enum.HumanoidStateType.Ragdoll or v246 == Enum.HumanoidStateType.FallingDown then
+        game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(v246, false)
+    end
+end;
+(game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()):WaitForChild("Humanoid")
+function MakeHoney()
+    game:GetService("ReplicatedStorage").Events.PlayerHiveCommand:FireServer(unpack({
+        "ToggleHoneyMaking"
+    }))
+end
+local vu247 = nil
+local vu248 = math.huge
+local vu249 = nil
+local vu250 = Instance.new("Part", game:GetService("Workspace"))
+vu250.Name = "combatcrabpart"
+vu250.Anchored = true
+vu250.Transparency = 1
+vu250.Size = Vector3.new(90, 1, 90)
+vu250.Position = Vector3.new(- 257.52117919922, 105.91863250732, 457.86791992188)
+HomeTab = UI:NewTab("Home", "6035145364")
+HomeTab:Section("Credits")
+HomeTab:TextBox("Owner - .Kron")
+HomeTab:TextBox("Version - 1.0")
+HomeTab:Section("Settings")
+HomeTab:Button("Rejoin Server", function(_)
+    game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end)
+HomeTab:Section("Discord")
+HomeTab:Button("Copy Discord Server", function(_)
+    setclipboard("https://discord.gg/QKFNzKyHbw")
+    Notify("KronHub", "Discord Server Copied", 3)
+end)
+Farming = UI:NewTab("Farming", "6035039429")
+Farming:Section("Farming")
+Farming:DropDown("Select Field", {
+    "Sunflower",
+    "Dandelion",
+    "Mushroom",
+    "Blue_Flower",
+    "Clover",
+    "Spider",
+    "Strawberry",
+    "Bamboo",
+    "Pineapple",
+    "Stump",
+    "Pumpkin",
+    "Cactus",
+    "Rose",
+    "PineTreeForest",
+    "Mountain",
+    "Coconut",
+    "Pepper"
+}, true, function(p251)
+    vu222 = vu221[p251]
+    game:GetService("CoreGui").KronHub.Main.Tabs.TabName.Farming.TextBox.Text = "Field: " .. p251
+end)
+Farming:TextBox("Field: Sunflower")
+Farming:Toggle("Autofarm", false, function(p252)
+    getgenv().AutoFarm = p252
+    if getgenv().AutoFarm ~= true then
+        return
+    end
+    if vu219.Value >= vu220.Value then
+        Teleport_Bypass(vu218)
+        task.wait(1)
+        MakeHoney()
+        while true do
+            if (vu217.Character.HumanoidRootPart.Position - vu218).magnitude > 10 then
+                if getgenv().AutoFarm == false then
+                    return
+                end
+                Teleport_Bypass(vu218)
+                task.wait(1)
+                if vu217.PlayerGui.ScreenGui.ActivateButton.TextBox.Text == "Make Honey" then
+                    MakeHoney()
+                end
+            end
+            task.wait()
+            if vu219.Value == 0 then
+                task.wait(5)
+            end
+        end
+    end
+    Teleport_Bypass(vu222.loc)
+    if getgenv().placesprinkler == true then
+        task.wait(0.5)
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+        game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer(unpack({
+            {
+                Name = "Sprinkler Builder"
+            }
+        }))
+        task.wait(0.5)
+    end
+    getgenv().AutoFarmSpeedOn = true
+    getgenv().CollectTokens = true
+    if (vu217.Character.HumanoidRootPart.Position - vu222.loc).magnitude > 65 then
+        Teleport_Bypass(vu222.loc)
+    end
+    if getgenv().AutoFarm == false then
+        getgenv().CollectTokens = false
+        getgenv().AutoFarmSpeedOn = false
+        return
+    end
+    task.wait()
+    if vu219.Value < vu220.Value then
+    end
+    Teleport_Bypass(vu218)
+    getgenv().AutoFarmSpeedOn = false
+    getgenv().CollectTokens = false
+    task.wait(1)
+    MakeHoney()
+    if getgenv().convertballon == true then
+        local v253, v254, v255 = pairs(game.Workspace.Balloons.HiveBalloons:GetChildren())
+        while true do
+            local v256
+            v255, v256 = v253(v254, v255)
+            if v255 == nil then
+                break
+            end
+            if v256.Name == "HiveBalloonInstance" then
+                vu247 = (v256.BalloonBody.Position - vu217.Character.HumanoidRootPart.Position).Magnitude
+                if vu247 <= 25 and vu247 < vu248 then
+                    local v257 = vu247
+                    vu249 = v256
+                    vu248 = v257
+                end
+            end
+        end
+        if vu249 then
+            repeat
+                task.wait()
+            until not vu249.Parent
+            vu247 = nil
+            local v258 = math.huge
+            vu249 = nil
+            vu248 = v258
+        end
+    end
+    task.wait(5)
+    if not task.wait() then
+    end
+    if getgenv().AutoFarm ~= true then
+    else
+    end
+    if (vu217.Character.HumanoidRootPart.Position - vu218).magnitude > 10 then
+        if getgenv().AutoFarm == false then
+            return
+        end
+        Teleport_Bypass(vu218)
+        task.wait(1)
+        if vu217.PlayerGui.ScreenGui.ActivateButton.TextBox.Text == "Make Honey" then
+            MakeHoney()
+        end
+    end
+    task.wait()
+    if vu219.Value ~= 0 then
+    else
+    end
+end)
+Farming:Section("Settings")
+Farming:Toggle("Auto Dig", false, function(p259)
+    getgenv().AutoDig = p259
+end)
+Farming:Toggle("Sprinkler", false, function(p260)
+    getgenv().placesprinkler = p260
+end)
+Farming:Toggle("Convert Ballons", false, function(p261)
+    getgenv().convertballon = p261
+end)
+Farming:Section("Extra Settings")
+Farming:Toggle("Farm Bubble", false, function(p262)
+    getgenv().collectbubble = p262
+end)
+TabTeleport = UI:NewTab("Teleport", "6031154875")
+TabTeleport:Section("Locations")
+TabTeleport:DropDown("Select Location", {
+    "Sunflower",
+    "Dandelion",
+    "Mushroom",
+    "Blue_Flower",
+    "Clover",
+    "Spider",
+    "Strawberry",
+    "Bamboo",
+    "Pineapple",
+    "Stump",
+    "Pumpkin",
+    "Cactus",
+    "Rose",
+    "PineTreeForest",
+    "Mountain",
+    "Coconut",
+    "Pepper"
+}, true, function(p263)
+    vu223 = vu221[p263]
+    game:GetService("CoreGui").KronHub.Main.Tabs.TabName.Teleport.TextBox.Text = "Location: " .. p263
+end)
+TabTeleport:TextBox("Location: Sunflower")
+TabTeleport:Button("Teleport to Selected Location", function(_)
+    Teleport_Bypass(vu223.loc)
+end)
+TabTeleport:Section("Your Hive")
+TabTeleport:Button("Teleport to Hive", function(_)
+    Teleport_Bypass(vu218)
+end)
+Items = UI:NewTab("Items", "6034941708")
+Items:Section("Items")
+Items:Button("Use All Buffs [Blue Pollen]", function(_)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Blue Extract"
+    })
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Glitter"
+    })
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Glue"
+    })
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Oil"
+    })
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Enzymes"
+    })
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Tropical TDrink"
+    })
+end)
+Items:Button("Use All Buffs [Red Pollen]", function(_)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Red Extract"
+    })
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Glitter"
+    })
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Glue"
+    })
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Oil"
+    })
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Enzymes"
+    })
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Tropical TDrink"
+    })
+end)
+Items:Button("Use Blue Extract", function(_)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Blue Extract"
+    })
+end)
+Items:Button("Use Red Extract", function(_)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Red Extract"
+    })
+end)
+Items:Button("Use Glitter", function(_)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Glitter"
+    })
+end)
+Items:Button("Use Glue", function(_)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Glue"
+    })
+end)
+Items:Button("Use Oil", function(_)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Oil"
+    })
+end)
+Items:Button("Use Enzymes", function(_)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Enzymes"
+    })
+end)
+Items:Button("Use Tropical Drink", function(_)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Tropical Drink"
+    })
+end)
+Items:Button("Use Purple Potion", function(_)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Purple Potion"
+    })
+end)
+Items:Button("Use Super Smoothie", function(_)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Super Smoothie"
+    })
+end)
+Items:Button("Use Marshmallow Bee", function(_)
+    game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({
+        Name = "Marshmallow Bee"
+    })
+end)
+Items:Section("Dispensers")
+Items:Button("Use All Dispenserse", function(_)
+    game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Glue Dispenser")
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Wealth Clock")
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Coconut Dispenser")
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Strawberry Dispenser")
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Treat Dispenser")
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Ant Pass Dispenser")
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Blueberry Dispenser")
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Honey Dispenser")
+    wait(0.01)
+    game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Royal Jelly Dispenser")
+end)
+Combat = UI:NewTab("Combat", "6034287525")
+Combat:Section("Combat")
+Combat:Toggle("Train Crab", false, function(p264)
+    if p264 then
+        game:GetService("Workspace"):FindFirstChild("combatcrabpart").CanCollide = true
+        Teleport_Bypass(vu250.Position + Vector3.new(0, 4.7, 0))
+    else
+        game:GetService("Workspace"):FindFirstChild("combatcrabpart").CanCollide = false
+    end
+end)
+Combat:Toggle("Train Snail", false, function(p265)
+    if p265 then
+        getgenv().TrainSnail = true
+    else
+        getgenv().TrainSnail = false
+    end
+end)
+Tab6 = UI:NewTab("Setting", "6031280882")
+Tab6:Section("Settings")
+Tab6:KeyBind("Toggle UI", Enum.KeyCode.LeftAlt, function()
+    if game:GetService("CoreGui").KronHub.Enabled then
+        game:GetService("CoreGui").KronHub.Enabled = false
+    else
+        game:GetService("CoreGui").KronHub.Enabled = true
+    end
+end)
+Tab6:Slider("AutoFarm Speed", 16, 16, 55, false, function(p266)
+    getgenv().Speed = p266
+end)
+Tab6:Toggle("Loop AutoFarm Speed", false, function(p267)
+    getgenv().AutoFarmSpeed = p267
+end)
+Notify("KronHub", "Welcome back!", 3)
+Teleport_Bypass(vu218)
+if not game:GetService("UserInputService").KeyboardEnabled then
+    if game.CoreGui:FindFirstChild("DogentScreenGui") then
+        game.CoreGui.DogentScreenGui:Destroy()
+    end
+    local v268 = Instance.new("ScreenGui")
+    v268.Name = "DogentScreenGui"
+    v268.Parent = game:GetService("CoreGui")
+    local v269 = Instance.new("TextButton")
+    v269.Name = "Open"
+    v269.Parent = v268
+    v269.BackgroundColor3 = Color3.fromRGB(29, 29, 35)
+    v269.BorderColor3 = Color3.fromRGB(29, 29, 35)
+    v269.Position = UDim2.new(0.00529315186, 0, 0.41107837, 0)
+    v269.Size = UDim2.new(0, 61, 0, 32)
+    v269.Font = Enum.Font.BuilderSansBold
+    v269.Text = "Open/Close"
+    v269.TextColor3 = Color3.fromRGB(255, 255, 255)
+    v269.TextSize = 11
+    v269.Active = true
+    v269.Draggable = false
+    local v270 = Instance.new("UICorner")
+    v270.CornerRadius = UDim.new(0, 3)
+    v270.Parent = v269
+    v269.MouseButton1Click:Connect(function()
+        local v271 = game:GetService("CoreGui"):FindFirstChild("KronHub")
+        if v271 then
+            v271.Enabled = not v271.Enabled
+        end
+    end)
+end
+task.spawn(function()
+    while task.wait() do
+        if getgenv().AutoDig == true then
+            game:GetService("ReplicatedStorage").Events.ToolCollect:FireServer()
+        end
+    end
+end)
+task.spawn(function()
+    while task.wait() do
+        if getgenv().AutoFarmSpeed == true and getgenv().AutoFarmSpeedOn == true then
+            game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = getgenv().Speed
+        end
+    end
+end)
+task.spawn(function()
+    repeat
+        if not task.wait() then
+            return
+        end
+    until getgenv().CollectTokens
+    local v272, v273, v274 = pairs(game:GetService("Workspace").Collectibles:GetDescendants())
+    if v279:IsA("Part") and (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v279.Position).Magnitude < 50 then
+        game.Players.LocalPlayer.Character.Humanoid:MoveTo(v279.Position)
+        if getgenv().collectbubble == true then
+            local v275, v276, v277 = pairs(game:GetService("Workspace").Particles:GetChildren())
+            while true do
+                local v278
+                v277, v278 = v275(v276, v277)
+                if v277 == nil then
+                    break
+                end
+                if v278:IsA("Part") and (v278.Name == "Bubble" and (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v278.Position).Magnitude < 60) then
+                    game.Players.LocalPlayer.Character.Humanoid:MoveTo(v278.Position)
+                    break
+                end
+            end
+        end
+    end
+    local v279
+    v274, v279 = v272(v273, v274)
+    if v274 ~= nil then
+    else
+    end
+    task.wait(0.6)
+	
+end)
+task.spawn(function()
+    while task.wait() do
+        if getgenv().TrainSnail == true and (vu217.Character.HumanoidRootPart.Position - Vector3.new(422.6567687988281, 96.42591857910156, - 175.72012329101562)).magnitude > 30 then
+            Teleport_Bypass(Vector3.new(422.6567687988281, 96.42591857910156, - 175.72012329101562))
+        end
+    end
+end)
+local v280 = workspace:FindFirstChild("FieldDecos")
+if v280 then
+    local v281 = {
+        v280
+    }
+    while # v281 > 0 do
+        local v282 = table.remove(v281)
+        local v283, v284, v285 = pairs(v282:GetChildren())
+        while true do
+            local v286
+            v285, v286 = v283(v284, v285)
+            if v285 == nil then
+                break
+            end
+            if v286:IsA("BasePart") then
+                v286.CanCollide = false
+                v286.Transparency = 0.5
+            elseif v286:IsA("Model") then
+                table.insert(v281, v286)
+            end
+        end
+    end
+end
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "W", false, game)
+    task.wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(false, "W", false, game)
+end)
